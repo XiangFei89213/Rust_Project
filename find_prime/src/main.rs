@@ -1,4 +1,4 @@
-fn sieve(n:usize){
+ fn sieve(n:usize){
     
     println!("hello from function {}" , n);
     let mut prime: Vec<bool> = vec![true; n];
@@ -11,21 +11,38 @@ fn sieve(n:usize){
     
     // for loop
     let mut i:usize =2;
-    let mut p:i32 ;
+    let mut p:usize ;
     let mut done = false;
     
     while !done{
-        let i = i+1;
+        
+        
+        println!("when i={}" , i);
         
         if prime[i] == true{
-            for p in (i*i) .. n {
-                prime[i] = false;
-            }
+          
+          print!(" prime = {}" , prime[i]);
+          
+          let mut end = false;
+          p=i*i;
+          while !end{
+                prime[p] = false;
+                println!("change prime{} to {}" , p, prime[p]);
+                p = p+i;
+                
+                if p>= n{
+                  end = true;
+                }
+          }
+
         }
         
-        if i*i <= n {
+        if i*i >= n {
             done = true;
         }
+        
+        i = i+1;
+        println!(" i={}", i);
     }
 
     // print result
