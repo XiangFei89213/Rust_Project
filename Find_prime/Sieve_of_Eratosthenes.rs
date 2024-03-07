@@ -1,7 +1,7 @@
 use std::env;
 fn sieve(n:usize){
     
-    println!("hello from function {}" , n);
+    // println!("hello from function {}" , n);
     let mut prime: Vec<bool> = vec![true; n];
     
     // for loop
@@ -12,17 +12,17 @@ fn sieve(n:usize){
     while !done{
         
         
-        println!("when i={}" , i);
+        // println!("when i={}" , i);
         
         if prime[i] == true{
           
-          print!(" prime = {}" , prime[i]);
+        //   print!(" prime = {}" , prime[i]);
           
           let mut end = false;
           p=i*i;
           while !end{
                 prime[p] = false;
-                println!("change prime{} to {}" , p, prime[p]);
+                // println!("change prime{} to {}" , p, prime[p]);
                 p = p+i;
                 
                 if p>= n{
@@ -54,7 +54,7 @@ fn sieve(n:usize){
 }
 fn main() {
     env::set_var("RUST_BACKTRACE", "1");
-    let n=50;
+    let n=500000000;
     //let primes = sieve(n);
     sieve(n);
     println!("Hello, World!");
