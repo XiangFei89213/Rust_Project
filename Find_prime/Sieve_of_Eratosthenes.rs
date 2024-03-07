@@ -1,3 +1,4 @@
+use std::env;
 fn sieve(n:usize){
     
     println!("hello from function {}" , n);
@@ -11,17 +12,17 @@ fn sieve(n:usize){
     while !done{
         
         
-        //println!("when i={}" , i);
+        println!("when i={}" , i);
         
         if prime[i] == true{
           
-          //print!(" prime = {}" , prime[i]);
+          print!(" prime = {}" , prime[i]);
           
           let mut end = false;
           p=i*i;
           while !end{
                 prime[p] = false;
-                //println!("change prime{} to {}" , p, prime[p]);
+                println!("change prime{} to {}" , p, prime[p]);
                 p = p+i;
                 
                 if p>= n{
@@ -40,15 +41,21 @@ fn sieve(n:usize){
     }
 
     // print result
-    for p in 2..n+1{
+    let mut num =0;
+    for p in 2..n{
         if prime[p] == true{
-            println!("{}" , p)
+            num = num+1;
+            //println!("{}" , p)
         }
     }
+    println!("there are {} prime number" , num);
+
     
 }
 fn main() {
-    let n=50000000;
-    let primes = sieve(n);
+    env::set_var("RUST_BACKTRACE", "1");
+    let n=50;
+    //let primes = sieve(n);
+    sieve(n);
     println!("Hello, World!");
 }
