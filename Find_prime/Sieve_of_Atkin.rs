@@ -95,7 +95,12 @@ fn sieve_of_atkin(limit: usize) {
 
 // Driver program
 fn main() {
+
+    // env
     env::set_var("RUST_BACKTRACE", "1");
-    let limit = 500000;
+    let args: Vec<String> = env::args().collect();
+    let limit :usize = args[1].clone().parse().unwrap();
+    
+    println!("{}", limit );
     sieve_of_atkin(limit);
 }
