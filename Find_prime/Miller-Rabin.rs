@@ -1,4 +1,5 @@
-use rand::Rng;
+extern crate rand; 
+use rand::prelude::*;
 
 // Utility function to do modular exponentiation.
 // It returns (x^y) % p
@@ -24,7 +25,8 @@ fn power(x: u64, y: u64, p: u64) -> u64 {
 // for some r >= 1
 fn miller_test(d: u64, n: u64) -> bool {
     let mut rng = rand::thread_rng();
-    let a = 2 + rng.gen_range(0..(n - 4));
+    let mut a:i64 = rng.gen_range(2..=(n - 3));
+    a= a+2;
     let mut x = power(a, d, n);
 
     if x == 1 || x == n - 1 {

@@ -25,7 +25,7 @@ fn trial_division(n: usize) -> bool {
 // Driver code
 fn main() {
     let mut num_of_prime = 0;
-    let prime = 100;
+    let prime = 1000;
     
     for n in 1..prime {
         if trial_division(n) {
